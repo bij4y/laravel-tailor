@@ -43,8 +43,8 @@ Route::post('register', [AuthController::class,'register']);
 Route::post('login', [AuthController::class,'login']);
 Route::group(['middleware'=> ['auth:sanctum']],
 function(){
-    Route::get('products/search',[ProductController::class,'search']);
-    // Route::resource('carousel', CarouselController::class);
+
+
     Route::resource('carousel1', CarouselController1::class);
 
     // Route::resource('rating',RatingController::class);
@@ -64,7 +64,9 @@ function(){
 
 // Route::resource('category',CategoryController::class);
 Route::resource('showrating',ShowTAilorRatingController::class);
-// Route::resource('onboarding',OnboardingController::class);
-// Route::resource('onboarding1',OnboardingController1::class);
+// Route::resource('onboard',OnboardingController::class);
+Route::resource('onboarding1',OnboardingController1::class);
 // Route::resource('onboarding2',OnboardingController2::class);
 Route::resource('categorywith', CAtegoryProductController::class);
+Route::get('products/search',[ProductController::class,'search']);
+Route::resource('carousel', CarouselController::class);

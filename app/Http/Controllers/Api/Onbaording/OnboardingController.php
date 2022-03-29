@@ -15,7 +15,7 @@ class OnboardingController extends Controller
      */
     public function index()
     {
-        $onboarding = Onborading::where('id',1)->get();
+        $onboarding = Onborading::all();
 
 
         return response()->json($onboarding);

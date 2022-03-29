@@ -17,7 +17,7 @@ class CarouselController extends Controller
     public function index()
     {
         //Carousel Image
-        $carousel = Carousel::where('id',1)->get();
+        $carousel = Carousel::all();
 
 
         return response()->json($carousel);

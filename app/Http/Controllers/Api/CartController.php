@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CartResource;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class CartController extends Controller
     public function index()
     {
         $items = Cart::where('user_id',Auth::user()->id)->get();
-        return response()->json($items);
+        return CartResource::collection($items);
     }
 
     /**
@@ -37,7 +38,8 @@ class CartController extends Controller
 
         $cartItem->user_id = Auth::user()->id;
         $cartItem->save();
-        return response()->json(['message','Item added to cart']);
+        return response()->json(['code' => 200,
+        'message' => 'Items add to cart',]);
 
     }
 
